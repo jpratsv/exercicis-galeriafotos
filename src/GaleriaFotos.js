@@ -7,19 +7,27 @@ import { useState } from "react";
 
 export default function GaleriaFotos() {
   let galeria = [
+    { src: "img/0.jpg", alt: "Prueba0" },
     { src: "img/1.jpg", alt: "Prueba1" },
     { src: "img/2.jpg", alt: "Prueba2" },
     { src: "img/3.jpg", alt: "Prueba3" },
     { src: "img/4.jpg", alt: "Prueba4" },
     { src: "img/5.jpg", alt: "Prueba5" },
-    { src: "img/6.jpg", alt: "Prueba6" },
   ];
 
-  const [img, setImg] = useState(0);
+  const [indexFotoActual, setIndexFotoActual] = useState(0);
 
+  const visualiza = (foto) => setIndexFotoActual(foto);
 
-  const visualiza = (foto) => setImg((nume) =>  nume * 10 + ); 
-
+  if (indexFotoActual) {
+    return (
+      <img
+        id="ampliada"
+        src={"img/" + indexFotoActual + ".jpg"}
+        onClick={() => visualiza(0)}
+      ></img>
+    );
+  }
   return (
     <>
       <body class="Galeria">
@@ -28,11 +36,6 @@ export default function GaleriaFotos() {
             <h1>Práctica Galeria de fotografias</h1>
           </header>
           <main class="detalle">
-            <img
-              onClick={() => visualiza(0)}
-              src="img/0.jpg"
-              alt="Imagen 0"
-            ></img>
             <img
               onClick={() => visualiza(1)}
               src="img/1.jpg"
@@ -52,6 +55,11 @@ export default function GaleriaFotos() {
               onClick={() => visualiza(4)}
               src="img/4.jpg"
               alt="Imagen 4"
+            ></img>
+            <img
+              onClick={() => visualiza(5)}
+              src="img/5.jpg"
+              alt="Imagen 5"
             ></img>
           </main>
         </div>
